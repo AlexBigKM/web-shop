@@ -1,0 +1,19 @@
+.slick-slider {
+    /*display: flex;*/
+    /*max-height: 500px;*/
+    max-height: 700px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.slick-initialize {
+
+}
+.slick-track {
+    display: flex;
+}
+.sliderImg {
+    /*height: 500px;*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+}
