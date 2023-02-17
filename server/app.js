@@ -1,16 +1,23 @@
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const cors = require('cors');
-const schema = require('./schema');
+// const schema = require('./schema');
+const { buildSchema } = require('graphql');
 
-const app = express();
-app.use(cors());
+const schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
 
 const root = {
     hello: () => {
         return 'Hello world!';
     },
 };
+
+const app = express();
+app.use(cors());
 
 app.use('/graphql', graphqlHTTP({
     graphql: true,
