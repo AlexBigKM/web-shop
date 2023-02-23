@@ -1,8 +1,9 @@
 const express = require('express');
-const { ApolloServer, gql } = require('apollo-server-express');
+const { ApolloServer } = require('apollo-server-express');
 const cors = require('cors');
-const typeDefs = require('./src/schema');
-const userTypeDefs = require('./src/graphql/userTypeDefs');
+const { merge } = require('lodash');
+const typeDefs = require('./src/graphql/typeDefs');
+const resolvers = require('./src/graphql/resolvers');
 const db = require('./models');
 
 // const resolvers = {
@@ -15,8 +16,8 @@ const PORT = process.env.PORT || 5000;
 
 async function startApolloServer(typeDefs, resolvers){
     const server = new ApolloServer({
-      typeDefs,
-      resolvers,
+      typeDefs: merge(typeDefs),
+      resolvers: merge(resolvers),
       context: ({ req }) => ({ req, db })
     })
     const app = express();
