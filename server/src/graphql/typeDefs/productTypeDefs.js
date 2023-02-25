@@ -7,12 +7,12 @@ const productTypeDefs = gql`
     price: Float!
   }
 
-  type Query {
+  extend type Query {
     product(id: ID!): Product
     products: [Product]!
   }
 
-  type Mutation {
+  extend type Mutation {
     createProduct(name: String!, price: Float!): Product!
     updateProduct(id: ID!, name: String!, price: Float!): Product!
     deleteProduct(id: ID!): Boolean!

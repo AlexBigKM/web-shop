@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const orderTypeDefs = gql`
   type Order {
@@ -14,11 +14,11 @@ const orderTypeDefs = gql`
     DELIVERED
   }
 
-  extend type Query {
+  type Query {
     getOrderById(id: ID!): Order
   }
 
-  extend type Mutation {
+  type Mutation {
     createOrder(userId: ID!, products: [ID!]!): Order!
     updateOrderStatus(id: ID!, status: OrderStatus!): Order
   }

@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const userTypeDefs = gql`
   type User {
@@ -7,12 +7,12 @@ const userTypeDefs = gql`
     lastName: String!
   }
 
-  type Query {
+  extend type Query {
     user(id: ID!): User
     users: [User]!
   }
 
-  type Mutation {
+  extend type Mutation {
     createUser(firstName: String!, lastName: String!): User!
     updateUser(id: ID!, firstName: String!, lastName: String!): User!
     deleteUser(id: ID!): Boolean!
